@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<openerp>
+  <data>
+  
+   <menuitem name="Formula Theroy" id="menu_main_formula" sequence="10"/>
+
+ <menuitem name="Formula Calculation" parent="menu_main_formula"
+         id="menu_sub_formula_calculation" sequence="1" />
+         
+  		<record model="ir.ui.view" id="view_devil_formulas_search">
+        <field name="name">devil.formulas.search</field>
+        <field name="model">devil.formulas</field>
+        <field name="arch" type="xml">
+            <search string="Formulas Searching">
+                <field name="name" string="Formulas"/>
+                <field name="cust_id"/>
+	           <field name="date"/>                   
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_devil_formulas_form">
+        <field name="name">devil.formulas.form</field>
+        <field name="model">devil.formulas</field>
+        <field name="arch" type="xml">
+            <form string="Formula Creation" version="7.0">
+                <header>
+                </header>
+                <sheet>                	
+	                <group col="4">
+	                    <field name="name"/>
+	                    <field name="cust_id"/>
+	                    <field name="date"/>                   
+	                </group>
+	                <notebook>
+	                    <page string="Calculate Items">
+		                     <field name="formula_line">
+	                                <tree string="Formula Lines" editable="bottom">									
+										<field name="name"/>
+										<field name="item_name"/>
+										<field name="item_qty"/>
+										<field name="price_unit"/>
+										<field name="price_subtotal"/>		                            
+	                                </tree>
+	                         </field>
+	                         <group class="oe_subtotal_footer oe_right">                                
+                                <div class="oe_subtotal_footer_separator oe_inline"> 
+                                <label for="total_amount"/>                                
+                                    <button name="button_dummy"
+                                        string="(update)" type="object" class="oe_edit_only oe_link"/>
+                                </div>
+                                <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary"/>
+                            </group>
+	                         	                                         
+	                    </page>
+	                </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_devil_formulas_tree">
+        <field name="name">devil.formulas.tree</field>
+        <field name="model">devil.formulas</field>
+        <field name="field_parent"></field>
+        <field name="arch" type="xml">
+            <tree string="Formula Info">
+                 <field name="name"/>
+                 <field name="cust_id"/>
+                 <field name="date"/>                                              
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_devil_formulas">
+        <field name="name">Formulas Info</field>
+        <field name="res_model">devil.formulas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_devil_formulas_search"/>
+    </record>
+
+  
+        
+ 
+         
+     <menuitem name="Calculation Entry" parent="menu_sub_formula_calculation" id="menu_action_calculation" 
+  action="action_devil_formulas"  sequence="0" />
+   
+  </data>
+</openerp>
