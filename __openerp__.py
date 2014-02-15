@@ -22,7 +22,7 @@
 {
     'name': 'Devil Testing',
     'version': '1.0',
-    'category': 'Devil Management',
+    'category': 'DevilManagement',
     'sequence': 14,
     'summary': 'Construction Formula',
     'description': """
@@ -34,7 +34,13 @@
     'images': ['images/sale_dashboard.jpeg','images/Sale_order_line_to_invoice.jpeg','images/sale_order.jpeg','images/sales_analysis.jpeg'],
     'depends': [],
     'data': [
+     'security/devil_security.xml',
+     'security/ir.model.access.csv',
      'devil_view.xml',
+     'devil_workflow.xml',
+     
+     
+     
     ],
     'demo': [],
     'test': [

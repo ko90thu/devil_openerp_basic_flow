@@ -16,6 +16,13 @@ class devil_formulas(osv.osv):
                 val1+=line['price_subtotal'] 
             val[total.id]=val1
         return val
+    
+    STATE_SELECTION = [
+        ('draft', 'New'),    
+        ('open', 'Accepted'),
+        ('cancel', 'Refused'),
+        ('close', 'Done')
+    ]
             
     _name='devil.formulas'
     _description='Formula Calculation'
@@ -25,15 +32,29 @@ class devil_formulas(osv.osv):
               'cust_id': fields.many2one('devil.customer','Customer'),
               'formula_line': fields.one2many('devil.items.lines','formula_id','FormulaLines'),
               'total_amount': fields.function(_amount_all, string='TotalAmount'),
+              'state': fields.selection(STATE_SELECTION, 'Status', readonly=True, select=True),
     }
+    _defaults = {
+        'state': lambda *a: 'draft',
+    }
+    
     def button_dummy(self, cr, uid, ids, context=None):
         return True
     
     
-    def _calculate_total(self,cr,uid,ids,context=None):
-        res={}
-        
-        return res
+    def devil_cancel(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'state': 'cancel'}, context=context)
+
+    def devil_open(self, cr, uid, ids, context={}):
+        return self.write(cr, uid, ids, {'state': 'open'}, context=context)
+
+    def devil_close(self, cr, uid, ids, context={}):
+        return self.write(cr, uid, ids, {'state': 'close'}, context=context)
+
+    def devil_draft(self, cr, uid, ids, context={}):
+        return self.write(cr, uid, ids, {'state': 'draft'}, context=context)
+    
+    
 devil_formulas()
 
 
