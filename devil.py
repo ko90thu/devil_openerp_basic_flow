@@ -8,6 +8,7 @@ import openerp.addons.decimal_precision as dp
 class devil_formulas(osv.osv):        
     
     def _amount_all(self, cr, uid, ids, total, arg, context=None):       
+<<<<<<< HEAD
         val={}        
         for total in self.browse(cr,uid,ids,context=None):
             if total['total_amt_disc'] or total['total_amt_disc'] != 0:
@@ -22,6 +23,15 @@ class devil_formulas(osv.osv):
                 for line in total.formula_line:
                     val1+=line['price_subtotal'] 
                 val[total.id]=val1
+=======
+        val={}
+        for total in self.browse(cr,uid,ids,context=None):
+            val[total.id]={'total_amount': 0.0,}
+            val1=0
+            for line in total.formula_line:
+                val1+=line['price_subtotal'] 
+            val[total.id]=val1
+>>>>>>> 08375b10183304dea2ebfe2187b2858b17177cbb
         return val
     
     STATE_SELECTION = [
@@ -38,7 +48,10 @@ class devil_formulas(osv.osv):
               'date': fields.date('Transaction Date'),
               'cust_id': fields.many2one('devil.customer','Customer'),
               'formula_line': fields.one2many('devil.items.lines','formula_id','FormulaLines'),
+<<<<<<< HEAD
               'total_amt_disc': fields.float('Amount Discount', required=True, ),
+=======
+>>>>>>> 08375b10183304dea2ebfe2187b2858b17177cbb
               'total_amount': fields.function(_amount_all, string='TotalAmount'),
               'state': fields.selection(STATE_SELECTION, 'Status', readonly=True, select=True),
     }
@@ -92,7 +105,12 @@ class devil_items_lines(osv.osv):
               'formula_id': fields.many2one('devil.formulas','Formula Reference',select=True,required=True,ondelete='cascade'),
               
             
+<<<<<<< HEAD
     }    
+=======
+    }
+    
+>>>>>>> 08375b10183304dea2ebfe2187b2858b17177cbb
   
         
         

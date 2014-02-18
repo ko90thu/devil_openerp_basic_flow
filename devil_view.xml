@@ -26,8 +26,13 @@
             <form string="Formula Creation" version="7.0">
                 <header>         
 	                <button name="devil_open" string="Open" states="draft" class="oe_highlight"/>
+<<<<<<< HEAD
                     <button name="devil_close" string="Accept" states="open" class="oe_highlight" groups="devil_testing.group_devil_manager"/>
                     <button name="devil_cancel" string="Refuse" states="open"  class="oe_highlight" groups="devil_testing.group_devil_manager"/>
+=======
+                    <button name="devil_close" string="Accept" states="open" class="oe_highlight"/>
+                    <button name="devil_cancel" string="Refuse" states="open"  class="oe_highlight"/>
+>>>>>>> 08375b10183304dea2ebfe2187b2858b17177cbb
                     <field name="state" widget="statusbar" statusbar_visible="draft,open,close"/>
                 </header>
                 <sheet>                	
@@ -47,6 +52,7 @@
 										<field name="price_subtotal"/>		                            
 	                                </tree>
 	                         </field>
+<<<<<<< HEAD
 	                         <group class="oe_subtotal_footer oe_right">	                         
 	                         	      <field name="total_amt_disc" widget="monetary"/>                   	                    
                                 <div class="oe_subtotal_footer_separator oe_inline">                                                 	                                                                 
@@ -54,6 +60,14 @@
                                     <button name="button_dummy"
                                         string="(update)" type="object" class="oe_edit_only oe_link"/>
                                 </div>                                                                 
+=======
+	                         <group class="oe_subtotal_footer oe_right">                                
+                                <div class="oe_subtotal_footer_separator oe_inline"> 
+                                <label for="total_amount"/>                                
+                                    <button name="button_dummy"
+                                        string="(update)" type="object" class="oe_edit_only oe_link"/>
+                                </div>
+>>>>>>> 08375b10183304dea2ebfe2187b2858b17177cbb
                                 <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary"/>
                             </group>
 	                         	                                         
