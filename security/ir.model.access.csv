@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_devil_items_lines_user,devil.items_lines user,model_devil_items_lines,group_devil_user,1,1,1,0
+access_devil_items_user,devil.items user,model_devil_items,group_devil_user,1,1,1,0
+access_devil_formulas_user,devil.formulas user,model_devil_formulas,group_devil_user,1,1,1,0
+access_devil_customer_user,devil.customer user,model_devil_customer,group_devil_user,1,1,1,0

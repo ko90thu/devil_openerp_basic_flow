@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+	<record model="ir.module.category" id="module_devil_category">
+            <field name="name">DEVIL</field>
+            <field name="sequence">4</field>
+            
+    </record>    
+    
+    <record id="group_devil_user" model="res.groups">
+        <field name="name">User</field>
+         <field name="category_id" ref="module_devil_category"/>        
+    </record>
+
+    <record id="group_devil_manager" model="res.groups">
+        <field name="name">Manager</field>
+         <field name="category_id" ref="module_devil_category"/>
+         <field name="implied_ids" eval="[(4, ref('group_devil_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>            
+    </record>
+</data>
+</openerp>

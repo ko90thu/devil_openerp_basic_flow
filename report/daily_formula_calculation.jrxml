@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="daily_formula_calculation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="xPath">
+		<![CDATA[/data/record]]>
+	</queryString>
+	<field name="Customer_Name-name" class="java.lang.String">
+		<fieldDescription><![CDATA[Customer-cust_id/Customer_Name-name]]></fieldDescription>
+	</field>
+	<field name="Transaction_Date-date" class="java.lang.String">
+		<fieldDescription><![CDATA[Transaction_Date-date]]></fieldDescription>
+	</field>
+	<field name="TotalAmount-total_amount" class="java.lang.String">
+		<fieldDescription><![CDATA[TotalAmount-total_amount]]></fieldDescription>
+	</field>
+	<field name="Address-address" class="java.lang.String">
+		<fieldDescription><![CDATA[Customer-cust_id/Address-address]]></fieldDescription>
+	</field>
+	<field name="Mobile-mobile" class="java.lang.String">
+		<fieldDescription><![CDATA[Customer-cust_id/Mobile-mobile]]></fieldDescription>
+	</field>
+	<field name="Item-item_name" class="java.lang.String">
+		<fieldDescription><![CDATA[FormulaLines-formula_line/Item-item_name]]></fieldDescription>
+	</field>
+	<field name="Item_Qty-item_qty" class="java.lang.String">
+		<fieldDescription><![CDATA[FormulaLines-formula_line/Item_Qty-item_qty]]></fieldDescription>
+	</field>
+	<field name="Unit_Price-price_unit" class="java.lang.String">
+		<fieldDescription><![CDATA[FormulaLines-formula_line/Unit_Price-price_unit]]></fieldDescription>
+	</field>
+	<field name="Subtotal-price_subtotal" class="java.lang.String">
+		<fieldDescription><![CDATA[FormulaLines-formula_line/Subtotal-price_subtotal]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="203" y="0" width="199" height="43"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Devil Testing]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="139" splitType="Stretch">
+			<textField>
+				<reportElement x="103" y="13" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Customer_Name-name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="13" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Transaction_Date-date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="33" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Address-address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="53" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Mobile-mobile}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="13" width="100" height="20"/>
+				<text><![CDATA[CustomerName:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="33" width="100" height="20"/>
+				<text><![CDATA[Address:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="53" width="100" height="20"/>
+				<text><![CDATA[Mobile:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="13" width="100" height="20"/>
+				<text><![CDATA[Transaction Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="119" width="100" height="20"/>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="119" width="100" height="20"/>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="119" width="100" height="20"/>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="119" width="100" height="20"/>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="0" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Item-item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="0" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Item_Qty-item_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="0" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Unit_Price-price_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="0" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{Subtotal-price_subtotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="394" y="0" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{TotalAmount-total_amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="294" y="0" width="100" height="20"/>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
